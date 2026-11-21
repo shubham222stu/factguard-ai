@@ -216,7 +216,7 @@ Return ONLY a valid JSON array (no markdown, no explanation):
 Document text:
 {text[:20000]}"""
 
-    response = client.models.generate_content(model="gemini-2.0-flash", contents=prompt)
+    response = client.models.generate_content(model="gemini-1.5-flash", contents=prompt)
     raw = response.text.strip()
     raw = re.sub(r'^```(?:json)?\s*', '', raw, flags=re.MULTILINE)
     raw = re.sub(r'\s*```$', '', raw, flags=re.MULTILINE)
@@ -288,7 +288,7 @@ Respond with ONLY valid JSON:
 }}"""
 
     try:
-        resp = client.models.generate_content(model="gemini-2.0-flash", contents=verification_prompt)
+        resp = client.models.generate_content(model="gemini-1.5-flash", contents=verification_prompt)
         raw = resp.text.strip()
         raw = re.sub(r'^```(?:json)?\s*', '', raw, flags=re.MULTILINE)
         raw = re.sub(r'\s*```$', '', raw, flags=re.MULTILINE)
